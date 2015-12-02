@@ -1,3 +1,4 @@
+// TODO - jgodi - add ability to run in phantomjs
 exports.config = {
     baseUrl: 'http://localhost:3001/',
 
