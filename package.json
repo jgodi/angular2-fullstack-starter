@@ -1,0 +1,59 @@
+{
+  "name": "angular2-fullstack-starter",
+  "version": "0.0.1",
+  "description": "A skeleton application with Angular 2, Webpack, Express and Node",
+  "scripts": {
+    "build": "webpack --colors --display-error-details --display-cached",
+    "start": "nodemon index.js",
+    "test": "karma start",
+    "watch": "webpack --watch"
+  },
+  "author": "Joshua Godi <joshuagodi@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgodi/angular2-fullstack-starter.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgodi/angular2-fullstack-starter/issues"
+  },
+  "homepage": "https://github.com/jgodi/angular2-fullstack-starter",
+  "dependencies": {
+    "@reactivex/rxjs": "5.0.0-alpha.11",
+    "angular2": "2.0.0-alpha.46",
+    "es6-shim": "0.33.13",
+    "reflect-metadata": "^0.1.2",
+    "zone.js": "^0.5.8"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "awesome-typescript-loader": "0.15.6",
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "css-loader": "^0.23.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "file-loader": "^0.8.5",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sourcemap-loader": "^0.3.6",
+    "karma-webpack": "^1.7.0",
+    "morgan": "^1.6.1",
+    "node-sass": "^3.4.2",
+    "nodemon": "^1.8.1",
+    "phantomjs": "^1.9.19",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "typescript": "1.7.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
