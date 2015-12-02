@@ -8,9 +8,9 @@
 
     <body>
         <app></app>
-        
-        <script src="build/bundle-fd887d.js"></script>
-        
+        {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+        <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+        {% } %}
     </body>
-    <!-- angular2-fullstack-starter v0.0.1 built on Wed Dec 02 2015 14:58:52 GMT-0600 (CST) -->
+    <!-- {%= o.htmlWebpackPlugin.options.pkg.name + ' v' + o.htmlWebpackPlugin.options.pkg.version + ' built on ' + new Date() %} -->
 </html>

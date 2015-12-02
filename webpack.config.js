@@ -1,4 +1,6 @@
-var path = require('path');
+var path = require('path'),
+    pkg = require('./package.json'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var autoprefixerOptions = {
     browsers: [
@@ -16,12 +18,13 @@ module.exports = {
         'es6-shim',
         'reflect-metadata',
         'zone.js',
+        'angular2/angular2',
         path.join(__dirname, 'public', 'app', 'app.js')
     ],
     output: {
-        path: path.join(__dirname, 'public', 'build', 'js'),
-        filename: 'app.bundle.js',
-        publicPath: 'build/js/',
+        path: path.join(__dirname, 'public', 'build'),
+        filename: 'bundle-[hash:6].js',
+        publicPath: 'build/',
         pathinfo: true
     },
     module: {
@@ -61,5 +64,12 @@ module.exports = {
         includePaths: [
             path.resolve(__dirname, 'node_modules', 'dist', 'src', 'scss')
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: '../../server/views/index.html',
+            pkg: pkg,
+            template: path.join(__dirname, 'public', 'index.html')
+        })
+    ]
 };
