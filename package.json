@@ -3,10 +3,16 @@
   "version": "0.0.1",
   "description": "A skeleton application with Angular 2, Webpack, Express and Node",
   "scripts": {
-    "build": "webpack --colors --display-error-details --display-cached",
+    "build:dev": "rm -rf public/build/* && webpack --colors --display-error-details --display-cached",
+    "build:prod": "rm -rf public/build/* && webpack --release --config webpack.config.prod.js",
+    "e2e": "protractor",
+    "preprotractor": "npm run webdriver-update",
+    "protractor": "protractor",
     "start": "nodemon index.js",
     "test": "karma start",
-    "watch": "webpack --watch"
+    "watch": "rm -rf public/build/* && webpack --watch --colors --display-error-details --display-cached",
+    "webdriver-update": "webdriver-manager update",
+    "webdriver-start": "webdriver-manager start"
   },
   "author": "Joshua Godi <joshuagodi@gmail.com>",
   "repository": {
@@ -37,6 +43,7 @@
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^1.7.0",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.2",
@@ -53,6 +60,7 @@
     "style-loader": "^0.13.0",
     "typescript": "1.7.3",
     "url-loader": "^0.5.7",
+    "util": "^0.10.3",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
