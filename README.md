@@ -1,3 +1,5 @@
+[![Dependency Status](https://david-dm.org/jgodi/angular2-fullstack-starter.svg)](https://david-dm.org/jgodi/angular2-fullstack-starter)
+
 # Angular2 Fullstack Starter
 
 > A basic starter project that features Angular 2 and Express/Node. Can be written in either Typescript or ES6. Has fully integrated unit and e2e tests.
