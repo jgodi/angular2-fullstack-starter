@@ -1,0 +1,7 @@
+{
+  "host": "http://test.myapplication.com",
+  "port": "8181",
+  "myapp": {
+    "mockConfigId": "1234"
+  }
+}

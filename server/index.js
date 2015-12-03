@@ -5,12 +5,14 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+// Custom API / Middleware
 import middleware from './middleware/index';
 import todos from './middleware/todos';
 
-// Env
-const PORT = process.env.PORT || 3001;
-const NODE_ENV = process.env.NODE_ENV || 'development';
+// Config
+import config from './config';
+const PORT = config.get('port');
+const ENV = config.get('env');
 
 // Configure Express
 const app = express();
@@ -40,6 +42,6 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.static(path.resolve(__dirname + '/../public')));
 
 // Start the server by listening on a port
-app.listen(PORT, function () {
-    console.log('Listen on http://localhost:' + PORT + ' in ' + NODE_ENV); // eslint-disable-line
+app.listen(config.get('port'), function () {
+    console.log(`Listening on http://localhost:${PORT} with the ${ENV} config loaded!`);// eslint-disable-line
 });

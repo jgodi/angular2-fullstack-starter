@@ -1,0 +1,8 @@
+{
+  "host": "http://myproductionurl",
+  "port": "8181",
+  "myapp": {
+    "mockConfigId": "1234"
+  }
+}
+
