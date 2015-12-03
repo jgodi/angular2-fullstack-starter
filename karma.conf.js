@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = function (config) {
-    var _config = {
+    config.set({
         basePath: '',
 
         frameworks: ['jasmine'],
@@ -14,13 +14,12 @@ module.exports = function (config) {
         exclude: [],
 
         preprocessors: {
-            'spec.bundle.js': ['webpack', 'sourcemap', 'coverage']
+            'spec.bundle.js': ['webpack', 'sourcemap']
         },
 
         plugins: [
             require('karma-webpack'),
             require('karma-jasmine'),
-            require('karma-coverage'),
             require('karma-phantomjs-launcher'),
             require('karma-sourcemap-loader')
         ],
@@ -62,13 +61,12 @@ module.exports = function (config) {
             noInfo: true
         },
 
-        reporters: ['dots', 'coverage'],
+        reporters: ['progress'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,
         browsers: ['PhantomJS'],
         singleRun: true
-    };
-    config.set(_config);
+    });
 };

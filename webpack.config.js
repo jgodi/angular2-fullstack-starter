@@ -19,7 +19,7 @@ module.exports = {
         'reflect-metadata',
         'zone.js',
         'angular2/angular2',
-        path.join(__dirname, 'public', 'app', 'app.js')
+        path.join(__dirname, 'public', 'app', 'bootstrap.js')
     ],
     output: {
         path: path.join(__dirname, 'public', 'build'),
