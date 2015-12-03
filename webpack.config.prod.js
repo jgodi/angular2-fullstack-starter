@@ -6,6 +6,12 @@ var path = require('path'),
     webpackConfig = require('./webpack.config.js');
 
 module.exports = extend(webpackConfig, {
+    output: {
+        path: path.join(__dirname, 'public', 'build'),
+        filename: 'bundle-[hash:6].js',
+        publicPath: 'build/',
+        pathinfo: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             filename: '../../server/views/index.html',

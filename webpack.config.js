@@ -23,7 +23,7 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'public', 'build'),
-        filename: 'bundle-[hash:6].js',
+        filename: 'dev-bundle.js',
         publicPath: 'build/',
         pathinfo: true
     },
