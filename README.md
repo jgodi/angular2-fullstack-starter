@@ -2,7 +2,7 @@
 
 # Angular2 Fullstack Starter
 
-> A basic starter project that features Angular 2 with ES6 and Express/Node. Has fully integrated unit and e2e tests.
+> A basic starter project that features Angular 2 with ES6 and Express/Node. Has fully integrated unit and e2e tests. Also, has the ability to build for production and configuration based on the environment!
 
 > Huge Kudos goes to the [Angular2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) for being a great example!
 
@@ -74,6 +74,14 @@ To build a fully optimized production version of the application, run the follow
 # Build a production version
 npm run build:prod
 ```
+
+### Adding Configuration
+
+Configuration is controlled via [convict](https://github.com/mozilla/node-convict).
+
+To add custom configuration, you first must modify the scheme located in `server/config.js`. Once you have the scheme in place, then go into `server/config/*` and add the value for each environment.
+
+To change/remove/add environments, just look at the scheme and change the default format for `env`.
 
 ### TODO
 * Complete all unit tests
