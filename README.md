@@ -2,7 +2,7 @@
 
 # Angular2 Fullstack Starter
 
-> A basic starter project that features Angular 2 and Express/Node. Can be written in either Typescript or ES6. Has fully integrated unit and e2e tests.
+> A basic starter project that features Angular 2 with ES6 and Express/Node. Has fully integrated unit and e2e tests.
 
 > Huge Kudos goes to the [Angular2 Webpack Starter](https://github.com/AngularClass/angular2-webpack-starter) for being a great example!
 

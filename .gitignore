@@ -16,7 +16,6 @@ node_modules/
 tmp/
 temp/
 public/bundle/
-server/views/index.html
 $RECYCLE.BIN/
 
 .DS_Store

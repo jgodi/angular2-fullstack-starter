@@ -10,11 +10,11 @@ export default function () {
 
     middleware.route('/todos')
         .get((req, res) => {
-            console.log('GET: todos');
+            console.log('CALLING GET FOR TODOS');
             res.json(todos);
         })
         .post((req, res) => {
-            console.log('POST: todos', req.body);
+            console.log('CALLING POST FOR TODOS', req.body);
             var todo = req.body;
             if (todo) {
                 todo.push(todo);
