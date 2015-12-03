@@ -22,9 +22,9 @@ module.exports = {
         path.join(__dirname, 'public', 'app', 'bootstrap.js')
     ],
     output: {
-        path: path.join(__dirname, 'public', 'build'),
+        path: path.join(__dirname, 'public', 'bundle'),
         filename: 'dev-bundle.js',
-        publicPath: 'build/',
+        publicPath: 'bundle/',
         pathinfo: true
     },
     module: {
@@ -37,12 +37,12 @@ module.exports = {
                     'doTypeCheck': false,
                     'useWebpackText': true
                 },
-                exclude: /node_modules/
+                exclude: /(node_modules|.spec.js)/
             },
             {
                 test: /\.ts$/,
                 loader: 'awesome-typescript',
-                exclude: /node_modules/
+                exclude: /(node_modules|.spec.ts)/
             },
             {
                 test: /\.scss$/,
@@ -70,7 +70,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: '../../server/views/index.html',
             pkg: pkg,
-            template: path.join(__dirname, 'public', 'index.html')
+            template: path.join(__dirname, 'server', 'views', 'index.template.html')
         })
     ]
 };

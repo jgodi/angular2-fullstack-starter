@@ -6,7 +6,7 @@ describe('App', function () {
 
     it('should have a title', function () {
         var subject = browser.getTitle();
-        var result = 'NG2 App';
+        var result = 'Angular2 Fullstack Starter';
         expect(subject).toEqual(result);
     });
 });

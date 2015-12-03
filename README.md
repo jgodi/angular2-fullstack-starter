@@ -46,7 +46,7 @@ Make sure to install the webdriver before hand using `npm run webdriver-update`.
 # Start the application in one command prompt
 npm start
 
-# Start the webdrive in another command prompt
+# Start the webdriver in another command prompt
 npm run webdriver-start
 
 # Finally, run the e2e test in a third command prompt

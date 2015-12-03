@@ -25,7 +25,7 @@ describe('App', () => {
         })
     ]);
 
-    it('should have a title', inject([MyApp], (app) => {
+    it('should have a greeting', inject([MyApp], (app) => {
         expect(app.greeting).toEqual('Hello :)');
     }));
 });

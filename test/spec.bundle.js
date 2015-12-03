@@ -23,8 +23,8 @@ require('angular2/mock');
  any file that ends with spec.js and get its path. By passing in true
  we say do this recursively
  */
-var testContext = require.context('./test', true, /\.spec\.js/);
-var appContext = require.context('./public/app', true, /\.spec\.js/);
+var testContext = require.context('./unit', true, /\.spec\.js/);
+var appContext = require.context('../public/app', true, /\.spec\.js/);
 
 // get all the files, for each file, call the context function
 // that will require the file and load it up here. Context will

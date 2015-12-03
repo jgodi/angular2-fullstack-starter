@@ -7,7 +7,7 @@ var path = require('path'),
 
 module.exports = extend(webpackConfig, {
     output: {
-        path: path.join(__dirname, 'public', 'build'),
+        path: path.join(__dirname, 'public', 'bundle'),
         filename: 'bundle-[hash:6].js',
         publicPath: 'build/',
         pathinfo: true
