@@ -1,7 +1,28 @@
 main {
     padding: 20px;
 
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
         margin: 0;
     }
 }
+
+header {
+    background-color: #c00;
+    color: white;
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0 20px;
+
+    > span {
+        display: block;
+        margin-right: 15px;
+        cursor: pointer;
+
+        &.active {
+            font-weight: bold;
+        }
+    }
+}
+

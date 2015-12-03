@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/angular2';
 import {Http, Headers} from 'angular2/http';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'http://localhost:3000';
 const TODO_API_URL = '/api/todos';
 
 @Injectable()

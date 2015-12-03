@@ -1,25 +1,29 @@
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/angular2';
+import {RouteConfig, ROUTER_DIRECTIVES, Location} from 'angular2/router';
 
-import {Header} from '../header/header';
-import {TodoService} from '../../services/todo';
+import {Home} from '../home/home';
+import {About} from '../about/about';
 
 @Component({
     selector: 'app',
     template: require('./app.html'),
-    directives: [Header, CORE_DIRECTIVES],
-    providers: [TodoService]
+    directives: [ROUTER_DIRECTIVES]
 })
+@RouteConfig([
+    {path: '/', component: Home, as: 'Home'},
+    {path: '/about', component: About, as: 'About'}
+])
 export class MyApp {
-    constructor(todoService:TodoService) {
-        this.todoService = todoService;
-        this.greeting = 'Hello :)';
+    constructor(location:Location) {
+        this.location = location;
+        this.title = 'Angular 2 Fullstack Starter';
     }
 
-    onInit() {
-        this.todoService.getTodos()
-            .map(res => res.json())
-            .subscribe(data => {
-                this.todos = data;
-            });
+    aboutActive() {
+        return this.location.path() === '/about';
+    }
+
+    homeActive() {
+        return this.location.path() === '';
     }
 }

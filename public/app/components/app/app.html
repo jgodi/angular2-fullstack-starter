@@ -1,8 +1,7 @@
-<app-header></app-header>
+<header>
+    <span [router-link]="['/Home']" class="link" [class.active]="homeActive()">{{title}}</span>
+    <span [router-link]="['/About']" class="link" [class.active]="aboutActive()">About</span>
+</header>
 <main>
-    <h1>{{greeting}}</h1>
-
-    <h4>TODOs</h4>
-
-    <p>{{todos | json}}</p>
+    <router-outlet></router-outlet>
 </main>
