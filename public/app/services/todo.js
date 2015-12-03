@@ -11,8 +11,6 @@ export class TodoService {
     }
 
     getTodos() {
-        console.log('Getting TODO list');
-
         const JSON_HEADERS = new Headers();
         JSON_HEADERS.append('Accept', 'application/json');
         JSON_HEADERS.append('Content-Type', 'application/json');

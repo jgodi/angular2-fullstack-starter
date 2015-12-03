@@ -1,6 +1,6 @@
 import {Router} from 'express';
 
-let todos = [
+const todos = [
     {id: 1, name: 'Todo #1'},
     {id: 2, name: 'Todo #2'}
 ];
@@ -10,12 +10,12 @@ export default function () {
 
     middleware.route('/todos')
         .get((req, res) => {
-            console.log('CALLING GET FOR TODOS');
+            console.log('CALLING GET FOR TODOS'); // eslint-disable-line
             res.json(todos);
         })
         .post((req, res) => {
-            console.log('CALLING POST FOR TODOS', req.body);
-            var todo = req.body;
+            console.log('CALLING POST FOR TODOS', req.body); // eslint-disable-line
+            let todo = req.body;
             if (todo) {
                 todo.push(todo);
                 res.json(todo);

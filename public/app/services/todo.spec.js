@@ -1,4 +1,4 @@
-import {TodoService} from './todo';
+import {describe, expect, it} from 'angular2/testing';
 
 describe('Todo Service', () => {
     // TODO - setup injector

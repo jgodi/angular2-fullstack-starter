@@ -1,4 +1,4 @@
-import {Component, bootstrap, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
 
 import {Header} from '../header/header';
 import {TodoService} from '../../services/todo';
@@ -19,7 +19,6 @@ export class MyApp {
         this.todoService.getTodos()
             .map(res => res.json())
             .subscribe(data => {
-                console.log('TODO DATA:', data);
                 this.todos = data;
             });
     }

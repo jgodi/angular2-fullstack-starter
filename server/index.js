@@ -1,8 +1,3 @@
-// Webpack
-import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import webpackConfig from '../webpack.config';
-
 // Express
 import path from 'path';
 import express from 'express';
@@ -14,8 +9,8 @@ import middleware from './middleware/index';
 import todos from './middleware/todos';
 
 // Env
-var PORT = process.env.PORT || 3001;
-var NODE_ENV = process.env.NODE_ENV || 'development';
+const PORT = process.env.PORT || 3001;
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Configure Express
 const app = express();
@@ -46,5 +41,5 @@ app.use(express.static(path.resolve(__dirname + '/../public')));
 
 // Start the server by listening on a port
 app.listen(PORT, function () {
-    console.log('Listen on http://localhost:' + PORT + ' in ' + NODE_ENV);
+    console.log('Listen on http://localhost:' + PORT + ' in ' + NODE_ENV); // eslint-disable-line
 });

@@ -28,6 +28,9 @@ module.exports = {
         pathinfo: true
     },
     module: {
+        preLoaders: [
+            {test: /\.js$/, loader: 'eslint-loader', exclude: /node_modules/}
+        ],
         loaders: [
             {test: /\.html$/, loader: 'raw'},
             {
@@ -65,6 +68,9 @@ module.exports = {
         includePaths: [
             path.resolve(__dirname, 'node_modules', 'dist', 'src', 'scss')
         ]
+    },
+    eslint: {
+        formatter: require('eslint-friendly-formatter')
     },
     plugins: [
         new HtmlWebpackPlugin({
