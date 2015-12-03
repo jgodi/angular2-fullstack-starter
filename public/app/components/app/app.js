@@ -5,7 +5,7 @@ import {TodoService} from '../../services/todo';
 
 @Component({
     selector: 'app',
-    templateUrl: 'app/components/app/app.html',
+    template: require('./app.html'),
     directives: [Header, CORE_DIRECTIVES],
     providers: [TodoService]
 })

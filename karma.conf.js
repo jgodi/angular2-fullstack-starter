@@ -34,6 +34,7 @@ module.exports = function (config) {
             devtool: 'inline-source-map',
             module: {
                 loaders: [
+                    {test: /\.html$/, loader: 'raw'},
                     {
                         test: /\.js$/,
                         loader: 'awesome-typescript',

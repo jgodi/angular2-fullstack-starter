@@ -12,7 +12,7 @@ class TestComponent {
 }
 
 describe('Header Component', () => {
-    xit('should should work', injectAsync([TestComponentBuilder], (tcb) => {
+    it('should should work', injectAsync([TestComponentBuilder], (tcb) => {
         return tcb.overrideTemplate(TestComponent, '<app-header></app-header>')
             .createAsync(TestComponent).then((fixture) => {
                 fixture.detectChanges();
@@ -21,7 +21,7 @@ describe('Header Component', () => {
                 let headerElement = fixture.debugElement.componentViewChildren[0].nativeElement;
 
                 expect(headerInstance.title).toBe('Angular 2 Fullstack Starter');
-                expect(DOM.querySelectorAll(headerElement, 'header').length.toEqual(1));
+                expect(DOM.querySelectorAll(headerElement, 'header').length).toEqual(1);
             });
     }));
 });

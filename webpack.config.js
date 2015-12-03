@@ -29,6 +29,7 @@ module.exports = {
     },
     module: {
         loaders: [
+            {test: /\.html$/, loader: 'raw'},
             {
                 test: /\.js$/,
                 loader: 'awesome-typescript',
