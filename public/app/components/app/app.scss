@@ -26,3 +26,21 @@ header {
     }
 }
 
+footer {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0 20px;
+
+    > span {
+        display: block;
+        margin-right: 15px;
+    }
+}
+

@@ -1,14 +1,21 @@
-import {beforeEachProviders, describe, expect, inject, it} from 'angular2/testing';
+import {TestComponentBuilder, describe, expect, injectAsync, it} from 'angular2/testing';
+import {Component} from 'angular2/angular2';
 
 import {About} from './about';
 
 describe('About Component', () => {
-    // Provide our implementations or mocks to the dependency injector
-    beforeEachProviders(() => [
-        About
-    ]);
+    it('should work', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+        return tcb.overrideTemplate(TestComponent, '<div><about></about></div>')
+            .createAsync(TestComponent)
+            .then((rootTC) => {
+                rootTC.detectChanges();
 
-    it('should have a title', inject([About], (about) => {
-        expect(about.title).toEqual('About Page');
+                let instance = rootTC.debugElement.componentViewChildren[0].componentInstance;
+                expect(instance.title).toEqual('About Page');
+            });
     }));
 });
+
+@Component({selector: 'test-cmp', directives: [About], template: ''})
+class TestComponent {
+}

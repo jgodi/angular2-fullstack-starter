@@ -1,4 +1,4 @@
-import {Component} from 'angular2/angular2';
+import {Component, ElementRef} from 'angular2/angular2';
 import {RouteConfig, ROUTER_DIRECTIVES, Location} from 'angular2/router';
 
 import {Home} from '../home/home';
@@ -14,9 +14,14 @@ import {About} from '../about/about';
     {path: '/about', component: About, as: 'About'}
 ])
 export class MyApp {
-    constructor(location:Location) {
+    constructor(el:ElementRef, location:Location) {
         this.location = location;
-        this.title = 'Angular 2 Fullstack Starter';
+        this.title = 'Angular2 Fullstack Starter';
+
+        const nativeElement = el.nativeElement;
+        this.env = nativeElement.getAttribute('env');
+        this.port = nativeElement.getAttribute('port');
+        this.mockConfigId = nativeElement.getAttribute('mockConfigId');
     }
 
     aboutActive() {

@@ -1,33 +1,37 @@
-import {beforeEachProviders, describe, expect, inject, it} from 'angular2/testing';
-import {provide} from 'angular2/angular2';
-import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
-import {Location} from 'angular2/router';
+import {TestComponentBuilder, describe, expect, injectAsync, it, beforeEachProviders} from 'angular2/testing';
+import {Component, provide, DirectiveResolver} from 'angular2/angular2';
+
+import {Location, Router, RouteRegistry} from 'angular2/router';
+import {SpyLocation} from 'angular2/src/mock/location_mock';
+import {RootRouter} from 'angular2/src/router/router';
 
 import {MyApp} from './app';
-import {TodoService} from '../../services/todo';
 
-describe('App', () => {
-    // Provide our implementations or mocks to the dependency injector
+describe('App Component', () => {
     beforeEachProviders(() => [
-        MyApp,
-        BaseRequestOptions,
-        MockBackend,
-        Location,
-        provide(Http, {
-            useFactory: function (backend, defaultOptions) {
-                return new Http(backend, defaultOptions);
+        RouteRegistry,
+        DirectiveResolver,
+        provide(Location, {useClass: SpyLocation}),
+        provide(Router, {
+            useFactory: (registry, location) => {
+                return new RootRouter(registry, location, MyApp);
             },
-            deps: [MockBackend, BaseRequestOptions]
-        }),
-        provide(TodoService, {
-            useFactory: function (http) {
-                return new TodoService(http);
-            },
-            deps: [Http]
+            deps: [RouteRegistry, Location]
         })
     ]);
 
-    it('should have a title', inject([MyApp], (app) => {
-        expect(app.title).toEqual('Angular 2 Fullstack Starter');
+    it('should work', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+        return tcb.overrideTemplate(TestComponent, '<div><app env="test"></app></div>')
+            .createAsync(TestComponent)
+            .then((rootTC) => {
+                rootTC.detectChanges();
+
+                let appInstance = rootTC.debugElement.componentViewChildren[0].componentInstance;
+                expect(appInstance.title).toEqual('Angular2 Fullstack Starter');
+            });
     }));
 });
+
+@Component({selector: 'test-cmp', directives: [MyApp], template: ''})
+class TestComponent {
+}

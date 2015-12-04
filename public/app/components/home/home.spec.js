@@ -1,14 +1,12 @@
-import {beforeEachProviders, describe, expect, inject, it} from 'angular2/testing';
-import {provide} from 'angular2/angular2';
+import {TestComponentBuilder, describe, expect, injectAsync, it, beforeEachProviders} from 'angular2/testing';
+import {Component, provide} from 'angular2/angular2';
 import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
 
 import {Home} from './home';
 import {TodoService} from '../../services/todo';
 
 describe('Home Component', () => {
-    // Provide our implementations or mocks to the dependency injector
     beforeEachProviders(() => [
-        Home,
         BaseRequestOptions,
         MockBackend,
         provide(Http, {
@@ -25,7 +23,18 @@ describe('Home Component', () => {
         })
     ]);
 
-    it('should have a title', inject([Home], (home) => {
-        expect(home.title).toEqual('Home Page');
+    it('should work', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+        return tcb.overrideTemplate(TestComponent, '<div><home></home></div>')
+            .createAsync(TestComponent)
+            .then((rootTC) => {
+                rootTC.detectChanges();
+
+                let instance = rootTC.debugElement.componentViewChildren[0].componentInstance;
+                expect(instance.title).toEqual('Home Page');
+            });
     }));
 });
+
+@Component({selector: 'test-cmp', directives: [Home], template: ''})
+class TestComponent {
+}
