@@ -82,9 +82,3 @@ Configuration is controlled via [convict](https://github.com/mozilla/node-convic
 To add custom configuration, you first must modify the scheme located in `server/config.js`. Once you have the scheme in place, then go into `server/config/*` and add the value for each environment.
 
 To change/remove/add environments, just look at the scheme and change the default format for `env`.
-
-### TODO
-* Complete all unit tests
-* Code Coverage Reporting
-* ESLint Integration
-* Better documentation
