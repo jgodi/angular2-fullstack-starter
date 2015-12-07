@@ -18,11 +18,8 @@ cd angular2-fullstack-starter
 # Install all required dependencies
 npm install
 
-# Start the server (express/node)
+# Start the server (express/node) - uses concurrent node package to run webpack too
 npm start
-
-# Open another console and use webpack to build/watch the client code
-npm run watch
 ```
 
 Now, navigate to [http://localhost:3000](http://localhost:3000) in your browser and code!
