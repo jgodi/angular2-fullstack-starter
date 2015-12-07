@@ -7,7 +7,6 @@
     "build:prod": "rm -rf public/bundle/* && webpack --release --config webpack.config.prod.js",
     "e2e": "npm run protractor",
     "lint": "eslint public/app server",
-    "postinstall": "npm run build:dev",
     "preprotractor": "npm run webdriver-update",
     "protractor": "protractor test/protractor.conf.js",
     "start": "./node_modules/concurrently/src/main.js --kill-others \"npm run watch\" \"nodemon index.js\"",
@@ -46,7 +45,7 @@
     "css-loader": "^0.23.0",
     "ejs": "^2.3.4",
     "eslint": "^1.10.3",
-    "eslint-config-bullhorn": "0.0.8",
+    "eslint-config-bullhorn": "latest",
     "eslint-friendly-formatter": "^1.2.2",
     "eslint-loader": "^1.1.1",
     "express": "^4.13.3",
@@ -58,6 +57,7 @@
     "karma": "^0.13.15",
     "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.1.3",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-webpack": "^1.7.0",
@@ -65,20 +65,21 @@
     "node-sass": "^3.4.2",
     "nodemon": "^1.8.1",
     "phantomjs": "^1.9.19",
+    "protractor": "^3.0.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "typescript": "1.7.3",
     "url-loader": "^0.5.7",
     "util": "^0.10.3",
+    "webdriver-manager": "^7.0.1",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "config": {
     "ghooks": {
       "pre-commit": "npm run lint",
-      "pre-push": "npm test",
-      "post-merge": "npm install"
+      "pre-push": "npm test"
     }
   }
 }

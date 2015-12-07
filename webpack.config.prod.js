@@ -16,7 +16,7 @@ module.exports = extend(webpackConfig, {
         new HtmlWebpackPlugin({
             filename: '../../server/views/index.html',
             pkg: pkg,
-            template: path.join(__dirname, 'public', 'index.html')
+            template: path.join(__dirname, 'server', 'views', 'index.template.html')
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

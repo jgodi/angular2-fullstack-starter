@@ -21,7 +21,8 @@ module.exports = function (config) {
             require('karma-webpack'),
             require('karma-jasmine'),
             require('karma-phantomjs-launcher'),
-            require('karma-sourcemap-loader')
+            require('karma-sourcemap-loader'),
+            require('karma-mocha-reporter')
         ],
 
         webpack: {
@@ -62,7 +63,7 @@ module.exports = function (config) {
             noInfo: true
         },
 
-        reporters: ['progress'],
+        reporters: ['mocha'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
