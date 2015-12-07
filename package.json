@@ -7,6 +7,7 @@
     "build:prod": "rm -rf public/bundle/* && webpack --release --config webpack.config.prod.js",
     "e2e": "npm run protractor",
     "lint": "eslint public/app server",
+    "postinstall": "npm run build:dev",
     "preprotractor": "npm run webdriver-update",
     "protractor": "protractor test/protractor.conf.js",
     "start": "nodemon index.js",

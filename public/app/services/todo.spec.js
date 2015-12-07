@@ -1,4 +1,4 @@
-import {describe, beforeEach, expect, it, inject, injectAsync, beforeEachProviders, AsyncTestCompleter} from 'angular2/testing';
+import {describe, expect, xit, inject, beforeEachProviders, AsyncTestCompleter} from 'angular2/testing';
 import {provide} from 'angular2/angular2';
 import {Http, Response, MockBackend, BaseRequestOptions} from 'angular2/http';
 
