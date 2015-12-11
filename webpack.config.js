@@ -1,7 +1,5 @@
 var path = require('path'),
-    pkg = require('./package.json'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    CleanPlugin = require('clean-webpack-plugin');
+    webpack = require('webpack');
 
 var autoprefixerOptions = {
     browsers: [
@@ -15,7 +13,15 @@ var autoprefixerOptions = {
 };
 
 module.exports = {
+    devtool: 'eval',
     entry: [
+        // For hot style updates
+        'webpack/hot/dev-server',
+
+        // The script refreshing the browser on none hot updates
+        'webpack-dev-server/client?http://localhost:3001',
+
+        // Major dependencies
         'es6-shim',
         'reflect-metadata',
         'zone.js',
@@ -24,9 +30,7 @@ module.exports = {
     ],
     output: {
         path: path.join(__dirname, 'public', 'bundle'),
-        filename: 'dev-bundle.js',
-        publicPath: 'bundle/',
-        pathinfo: true
+        filename: 'dev-bundle.js'
     },
     module: {
         preLoaders: [
@@ -34,26 +38,8 @@ module.exports = {
         ],
         loaders: [
             {test: /\.html$/, loader: 'raw'},
-            {
-                test: /\.js$/,
-                loader: 'awesome-typescript',
-                query: {
-                    'doTypeCheck': false,
-                    'useWebpackText': true
-                },
-                exclude: /(node_modules|.spec.js)/
-            },
-            {
-                test: /\.ts$/,
-                loader: 'awesome-typescript',
-                exclude: /(node_modules|.spec.ts)/
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'autoprefixer?' + JSON.stringify(autoprefixerOptions), 'sass']
-            },
-            // Any png-image or woff-font below or equal to 100K will be converted
-            // to inline base64 instead
+            {test: /\.js$/, loader: 'babel', exclude: /(node_modules|.spec.js)/},
+            {test: /\.scss$/, loaders: ['style', 'css', 'autoprefixer?' + JSON.stringify(autoprefixerOptions), 'sass']},
             {test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000'}
         ]
     },
@@ -74,11 +60,6 @@ module.exports = {
         formatter: require('eslint-friendly-formatter')
     },
     plugins: [
-        new CleanPlugin('public/bundle'),
-        new HtmlWebpackPlugin({
-            filename: '../../server/views/index.html',
-            pkg: pkg,
-            template: path.join(__dirname, 'server', 'views', 'index.template.html')
-        })
+        new webpack.HotModuleReplacementPlugin()
     ]
 };

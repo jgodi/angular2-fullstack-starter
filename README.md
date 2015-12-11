@@ -18,7 +18,7 @@ cd angular2-fullstack-starter
 # Install all required dependencies
 npm install
 
-# Start the server (express/node) - uses concurrent node package to run webpack too
+# Start the server (uses WebpackDevServer for development)
 npm start
 ```
 
@@ -47,7 +47,7 @@ npm start
 npm run webdriver-start
 
 # Finally, run the e2e test in a third command prompt
-npm run e2e
+npm run protractor
 ```
 
 ### Building
@@ -70,6 +70,15 @@ To build a fully optimized production version of the application, run the follow
 ```bash
 # Build a production version
 npm run build:prod
+```
+
+### Running Production Code
+
+To run the production version of the application, run the following commands:
+
+```bash
+npm run build:prod
+npm run start:prod
 ```
 
 ### Adding Configuration

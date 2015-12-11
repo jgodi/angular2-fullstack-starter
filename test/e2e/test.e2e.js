@@ -1,10 +1,9 @@
-// TODO - jgodi - add ability to write these in ES6
-describe('App', function () {
-    beforeEach(function () {
+describe('App', () => {
+    beforeEach(() => {
         browser.get('/');
     });
 
-    it('should have a title', function () {
+    it('should have a title', () => {
         var subject = browser.getTitle();
         var result = 'Angular2 Fullstack Starter';
         expect(subject).toEqual(result);

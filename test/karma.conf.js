@@ -35,22 +35,7 @@ module.exports = function (config) {
             module: {
                 loaders: [
                     {test: /\.html$/, loader: 'raw'},
-                    {
-                        test: /\.js$/,
-                        loader: 'awesome-typescript',
-                        query: {
-                            'doTypeCheck': false,
-                            'useWebpackText': true
-                        },
-                        exclude: /node_modules/
-                    },
-                    {
-                        test: /\.ts$/,
-                        loader: 'awesome-typescript',
-                        exclude: /node_modules/
-                    },
-                    // Any png-image or woff-font below or equal to 100K will be converted
-                    // to inline base64 instead
+                    {test: /\.js$/, loader: 'babel', exclude: /(node_modules)/},
                     {test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000'}
                 ]
             },

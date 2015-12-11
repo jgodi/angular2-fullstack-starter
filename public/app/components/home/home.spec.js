@@ -1,4 +1,4 @@
-import {TestComponentBuilder, describe, expect, inject, it, beforeEachProviders} from 'angular2/testing';
+import {TestComponentBuilder, describe, expect, inject, xit, beforeEachProviders} from 'angular2/testing';
 import {Component, provide} from 'angular2/angular2';
 import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
 
@@ -23,7 +23,7 @@ describe('Home Component', () => {
         })
     ]);
 
-    it('should work', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+    xit('should work', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
         return tcb.overrideTemplate(TestComponent, '<div><home></home></div>')
             .createAsync(TestComponent)
             .then((rootTC) => {
