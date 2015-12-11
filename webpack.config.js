@@ -1,6 +1,7 @@
 var path = require('path'),
     pkg = require('./package.json'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    CleanPlugin = require('clean-webpack-plugin');
 
 var autoprefixerOptions = {
     browsers: [
@@ -73,6 +74,7 @@ module.exports = {
         formatter: require('eslint-friendly-formatter')
     },
     plugins: [
+        new CleanPlugin('public/bundle'),
         new HtmlWebpackPlugin({
             filename: '../../server/views/index.html',
             pkg: pkg,
