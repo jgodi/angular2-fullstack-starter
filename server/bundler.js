@@ -1,10 +1,11 @@
 import Webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import WebpackConfig from './../webpack.config';
+import httpProxy from 'http-proxy';
 
 import path from 'path';
 
-export default function () {
+export default function (app) {
     let bundleStartTime = null;
 
     // Inform the user on the status of webpacking
@@ -43,5 +44,20 @@ export default function () {
     // that we are starting the initial bundle
     bundler.listen(3001, 'localhost', function () {
         console.log('Bundling up the project, sit tight!'); // eslint-disable-line
+    });
+
+    // Create a proxy to serve files to the app server from the webpack dev server
+    const proxy = httpProxy.createProxyServer();
+
+    // Any requests to localhost:3000/assets is proxied
+    // to webpack-dev-server
+    app.all(['/bundle/*', '*.hot-update.json'], function (req, res) {
+        proxy.web(req, res, {
+            target: 'http://localhost:3001'
+        });
+    });
+
+    proxy.on('error', function () {
+        console.log('Could not connect to proxy, stop/restart the server.'); // eslint-disable-line
     });
 }
