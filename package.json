@@ -26,11 +26,11 @@
   },
   "homepage": "https://github.com/jgodi/angular2-fullstack-starter",
   "dependencies": {
-    "angular2": "2.0.0-alpha.52",
-    "es6-shim": "0.33.13",
+    "angular2": "2.0.0-beta.0",
+    "es6-shim": "0.34.0",
     "reflect-metadata": "^0.1.2",
-    "rxjs": "5.0.0-alpha.14",
-    "zone.js": "0.5.8"
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",

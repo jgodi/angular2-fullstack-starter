@@ -1,4 +1,4 @@
-var path = require('path');
+var path = require('path'); // eslint-disable-line
 
 module.exports = function (config) {
     config.set({
@@ -36,7 +36,17 @@ module.exports = function (config) {
                 loaders: [
                     {test: /\.html$/, loader: 'raw'},
                     {test: /\.js$/, loader: 'babel', exclude: /(node_modules)/},
-                    {test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000'}
+                    {test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000'},
+                    {test: /\.scss$/, loaders: ['style', 'css', 'sass']}
+                ],
+                noParse: [/angular2\/bundles\/.+/]
+            },
+
+            // Sass loader configuration to tell webpack where to find the additional SASS files
+            // https://github.com/jtangelder/sass-loader#sass-options
+            sassLoader: {
+                includePaths: [
+                    path.resolve(__dirname, 'node_modules', 'src', 'styles')
                 ]
             },
             stats: {colors: true, reasons: true},

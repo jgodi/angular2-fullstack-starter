@@ -1,5 +1,5 @@
 import {TestComponentBuilder, describe, expect, inject, xit, beforeEachProviders} from 'angular2/testing';
-import {Component, provide} from 'angular2/angular2';
+import {Component, provide} from 'angular2/core';
 import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
 
 import {Home} from './home';

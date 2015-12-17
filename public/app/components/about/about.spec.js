@@ -1,5 +1,5 @@
 import {TestComponentBuilder, describe, expect, inject, it} from 'angular2/testing';
-import {Component} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 
 import {About} from './about';
 

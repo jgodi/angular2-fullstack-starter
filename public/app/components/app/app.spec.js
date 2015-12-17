@@ -1,5 +1,5 @@
 import {TestComponentBuilder, describe, expect, inject, xit, beforeEachProviders} from 'angular2/testing';
-import {Component, provide, DirectiveResolver} from 'angular2/angular2';
+import {Component, provide, DirectiveResolver} from 'angular2/core';
 
 import {Location, Router, RouteRegistry} from 'angular2/router';
 import {SpyLocation} from 'angular2/src/mock/location_mock';

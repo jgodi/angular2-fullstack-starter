@@ -5,20 +5,13 @@ var path = require('path'),
     CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = extend(webpackConfig, {
-    entry: [
-        // Major dependencies
-        'es6-shim',
-        'reflect-metadata',
-        'zone.js',
-        'angular2/angular2',
-        path.join(__dirname, 'public', 'app', 'bootstrap.js')
-    ],
-    output: {
-        path: path.join(__dirname, 'public', 'bundle'),
-        filename: 'bundle.js'
+    entry: {
+        'app': path.join(__dirname, 'public', 'app', 'bootstrap.js'),
+        'vendor': path.join(__dirname, 'public', 'app', 'vendor.js')
     },
     plugins: [
         new CleanPlugin('public/bundle'),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')

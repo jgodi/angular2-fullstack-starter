@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
 
 const BASE_URL = 'http://localhost:3000';

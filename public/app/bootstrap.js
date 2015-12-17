@@ -1,4 +1,6 @@
-import {bootstrap, provide, ELEMENT_PROBE_PROVIDERS} from 'angular2/angular2';
+import {bootstrap} from 'angular2/bootstrap';
+import {provide} from 'angular2/core';
+import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
