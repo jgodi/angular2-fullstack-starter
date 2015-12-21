@@ -40,7 +40,7 @@ module.exports = {
             {test: /\.scss$/, loaders: ['style', 'css', 'autoprefixer?' + JSON.stringify(autoprefixerOptions), 'sass']},
             {test: /\.(png|woff|ttf|svg)(\?.*)?$/, loader: 'url-loader?limit=1000000'}
         ],
-        noParse: [/angular2\/bundles\/.+/]
+        noParse: [/.+zone\.js\/dist\/.+/, /.+angular2\/bundles\/.+/, /.+zone\.js\/lib\/.+/]
     },
     resolve: {
         modulesDirectories: [

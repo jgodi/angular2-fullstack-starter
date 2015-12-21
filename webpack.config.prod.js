@@ -9,7 +9,7 @@ module.exports = extend(webpackConfig, {
     devtool: 'eval',
     entry: {
         'app': path.join(__dirname, 'public', 'app', 'bootstrap.prod.js'),
-        'vendor': path.join(__dirname, 'public', 'app', 'vendor.js')
+        'vendor': path.join(__dirname, 'public', 'app', 'vendor.prod.js')
     },
     plugins: [
         new CleanPlugin('public/bundle'),
