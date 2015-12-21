@@ -1,4 +1,4 @@
-import {TestComponentBuilder, describe, expect, inject, it} from 'angular2/testing';
+import {TestComponentBuilder, describe, expect, injectAsync, it} from 'angular2/testing';
 import {Component} from 'angular2/core';
 
 import {About} from './about';
@@ -12,7 +12,7 @@ class TestComponent {
 }
 
 describe('About Component', () => {
-    it('should work', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+    it('should work', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
         return tcb.createAsync(TestComponent)
             .then((rootTC) => {
                 rootTC.detectChanges();

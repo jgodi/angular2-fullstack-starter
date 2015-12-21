@@ -11,8 +11,12 @@
  */
 Error.stackTraceLimit = Infinity;
 require('phantomjs-polyfill');
+require('es6-promise');
 require('es6-shim');
-require('angular2/bundles/angular2-polyfills');
+require('es7-reflect-metadata/dist/browser');
+require('zone.js/lib/browser/zone-microtask.js');
+require('zone.js/lib/browser/long-stack-trace-zone.js');
+require('zone.js/lib/browser/jasmine-patch.js');
 require('angular2/testing');
 
 /*
@@ -24,12 +28,12 @@ require('angular2/testing');
  any file that ends with spec.js and get its path. By passing in true
  we say do this recursively
  */
-var srcContext = require.context('../src', true, /\.spec\.js/); // eslint-disable-line
+var appContext = require.context('../public/app', true, /\.spec\.js/); // eslint-disable-line
 
 // get all the files, for each file, call the context function
 // that will require the file and load it up here. Context will
 // loop and require those spec files here
-srcContext.keys().forEach(srcContext);
+appContext.keys().forEach(appContext);
 
 // Select BrowserDomAdapter.
 // see https://github.com/AngularClass/angular2-webpack-starter/issues/124

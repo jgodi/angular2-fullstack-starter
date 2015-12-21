@@ -5,13 +5,15 @@ var path = require('path'),
     CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = extend(webpackConfig, {
+    debug: false,
+    devtool: 'eval',
     entry: {
-        'app': path.join(__dirname, 'public', 'app', 'bootstrap.js'),
+        'app': path.join(__dirname, 'public', 'app', 'bootstrap.prod.js'),
         'vendor': path.join(__dirname, 'public', 'app', 'vendor.js')
     },
     plugins: [
         new CleanPlugin('public/bundle'),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')

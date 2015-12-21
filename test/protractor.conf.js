@@ -27,7 +27,7 @@ exports.config = {
     },
 
     onPrepare: function () {
-        require('babel/register');
+        require('babel-core/register');
         browser.ignoreSynchronization = true;
         var SpecReporter = require('jasmine-spec-reporter');
         jasmine.getEnv().addReporter(new SpecReporter({

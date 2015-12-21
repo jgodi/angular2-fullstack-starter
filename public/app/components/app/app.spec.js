@@ -1,4 +1,4 @@
-import {TestComponentBuilder, describe, expect, inject, xit, beforeEachProviders} from 'angular2/testing';
+import {TestComponentBuilder, describe, expect, injectAsync, xit, beforeEachProviders} from 'angular2/testing';
 import {Component, provide, DirectiveResolver} from 'angular2/core';
 
 import {Location, Router, RouteRegistry} from 'angular2/router';
@@ -20,7 +20,7 @@ describe('App Component', () => {
         })
     ]);
 
-    xit('should work', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+    xit('should work', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
         return tcb.overrideTemplate(TestComponent, '<div><app env="test"></app></div>')
             .createAsync(TestComponent)
             .then((rootTC) => {

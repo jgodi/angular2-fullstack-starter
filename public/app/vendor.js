@@ -1,5 +1,9 @@
 // Polyfills
-import 'angular2/bundles/angular2-polyfills';
+import 'es6-shim';
+import 'es6-promise';
+import 'es7-reflect-metadata/dist/browser';
+import 'zone.js/lib/browser/zone-microtask';
+import 'zone.js/lib/browser/long-stack-trace-zone'; // in Production you may want to remove this
 
 // Angular 2
 import 'angular2/platform/browser';
@@ -7,9 +11,6 @@ import 'angular2/platform/common_dom';
 import 'angular2/core';
 import 'angular2/router';
 import 'angular2/http';
-import 'angular2/common';
 
 // RxJS
 import 'rxjs';
-
-// Add any other third party library here

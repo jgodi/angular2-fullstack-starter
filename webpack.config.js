@@ -13,7 +13,8 @@ var autoprefixerOptions = {
 };
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'source-map', // for faster builds use 'eval'
+    debug: true, // remove in production
     entry: {
         'app': [
             // For hot style updates
@@ -26,7 +27,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'public', 'bundle'),
-        filename: '[name].bundle.js'
+        filename: '[name].js'
     },
     module: {
         preLoaders: [

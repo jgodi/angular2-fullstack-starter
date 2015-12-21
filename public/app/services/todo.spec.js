@@ -1,5 +1,5 @@
-import {describe, expect, xit, inject, beforeEachProviders, AsyncTestCompleter} from 'angular2/testing';
-import {provide} from 'angular2/angular2';
+import {describe, expect, xit, injectAsync, beforeEachProviders, AsyncTestCompleter} from 'angular2/testing';
+import {provide} from 'angular2/core';
 import {Http, Response, MockBackend, BaseRequestOptions} from 'angular2/http';
 
 import {TodoService} from './todo';
@@ -27,7 +27,7 @@ describe('Todo Service', () => {
         })
     ]);
 
-    xit('should work', inject([TodoService, MockBackend, AsyncTestCompleter], (todoService, backend, async) => {
+    xit('should work', injectAsync([TodoService, MockBackend, AsyncTestCompleter], (todoService, backend, async) => {
         let connection;
         backend.connections.subscribe(c => connection = c);
 
