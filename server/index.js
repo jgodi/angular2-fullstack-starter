@@ -23,29 +23,29 @@ const app = express();
 app.use(morgan('dev'));
 
 app.use(ExpressCompiler({
-  root: '.',
-  cwd: 'public',
-  paths: ['public/**/*'],
-  ignore: ['public/node_modules/**/*'],
-  disableStyleCache: true,
-  compilerOpts: {
-    js: {
-      presets: ["es2015"],
-      plugins: [
-        "angular2-annotations",
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-flow-strip-types"
-      ]
+    root: '.',
+    cwd: 'public',
+    paths: ['public/**/*'],
+    ignore: ['public/node_modules/**/*'],
+    disableStyleCache: true,
+    compilerOpts: {
+        js: {
+            presets: ["es2015"],
+            plugins: [
+                "angular2-annotations",
+                "transform-decorators-legacy",
+                "transform-class-properties",
+                "transform-flow-strip-types"
+            ]
+        }
     }
-  }
 }));
 
 
 // Accept Content-Type
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+    extended: true
 }));
 
 // CORs
@@ -67,6 +67,6 @@ app.use(express.static(path.resolve(__dirname + '/../public')));
 app.use('/node_modules', express.static(path.resolve(__dirname + '/../node_modules')));
 
 // Start the server by listening on a port
-app.listen(PORT, function() {
-  console.log(`Listening on http://localhost:${PORT} with the ${ENV} config loaded!`); // eslint-disable-line
+app.listen(PORT, function () {
+    console.log(`Listening on http://localhost:${PORT} with the ${ENV} config loaded!`); // eslint-disable-line
 });
