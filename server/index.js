@@ -5,12 +5,11 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+import compiler from 'electron-compile';
+
 // Custom API / Middleware
 import middleware from './middleware/index';
 import todos from './middleware/todos';
-
-// Webpack Bundler (DEV)
-import bundler from './bundler';
 
 // Config
 import config from './config';
@@ -22,6 +21,25 @@ const app = express();
 
 // Logging
 app.use(morgan('dev'));
+
+app.use(compiler({
+    root: 'public',
+    paths: ['public/**/*'],
+    ignore: ['public/node_modules/**/*'],
+    disableStyleCache: true,
+    compilerOpts: {
+        js: {
+            presets: ["es2015"],
+            plugins: [
+                "angular2-annotations",
+                "transform-decorators-legacy",
+                "transform-class-properties",
+                "transform-flow-strip-types"
+            ]
+        }
+    }
+}));
+
 
 // Accept Content-Type
 app.use(bodyParser.json());
@@ -43,11 +61,7 @@ app.engine('html', require('ejs').renderFile);
 
 // Static files
 app.use(express.static(path.resolve(__dirname + '/../public')));
-
-// If we are in development, run the bundler and start a proxy
-if (ENV === 'development') {
-    bundler(app);
-}
+app.use('/node_modules', express.static(path.resolve(__dirname + '/../node_modules')));
 
 // Start the server by listening on a port
 app.listen(PORT, function () {

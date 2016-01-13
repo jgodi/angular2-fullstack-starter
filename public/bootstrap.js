@@ -12,7 +12,7 @@ import {ELEMENT_PROBE_PROVIDERS} from 'angular2/platform/common_dom';
 import {MyApp} from './components/app/app';
 
 // Main style import
-import './assets/styles/main.scss';
+//import './assets/styles/main.scss';
 
 // enableProdMode() // include for production builds
 function main() {
