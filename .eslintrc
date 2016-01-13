@@ -1,0 +1,13 @@
+{
+    "extends": "bullhorn/angular2",
+    "globals": {
+        "jasmine": true,
+        "element": true,
+        "by": true,
+        "describe": true,
+        "beforeEach": true,
+        "it": true,
+        "browser": true,
+        "expect": true
+    }
+}

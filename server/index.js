@@ -4,8 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-
-import { ExpressCompiler } from 'express-compile';
+import {Compiler} from 'express-compile';
 
 // Custom API / Middleware
 import middleware from './middleware/index';
@@ -22,25 +21,15 @@ const app = express();
 // Logging
 app.use(morgan('dev'));
 
-app.use(ExpressCompiler({
+// Setup Express-Compiler
+// Ignore style cache for development, so make sure SASS imports get changes
+app.use(Compiler({
     root: '.',
     cwd: 'public',
     paths: ['public/**/*'],
     ignore: ['public/node_modules/**/*'],
-    disableStyleCache: true,
-    compilerOpts: {
-        js: {
-            presets: ["es2015"],
-            plugins: [
-                "angular2-annotations",
-                "transform-decorators-legacy",
-                "transform-class-properties",
-                "transform-flow-strip-types"
-            ]
-        }
-    }
+    ignoreStyleCache: ENV === 'development'
 }));
-
 
 // Accept Content-Type
 app.use(bodyParser.json());

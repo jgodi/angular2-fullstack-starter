@@ -5,10 +5,9 @@ import {TodoService} from '../../services/todo';
 
 @Component({
     selector: 'home',
-    template: require('./home.html'),
+    templateUrl: 'components/home/home.html',
     directives: [CORE_DIRECTIVES],
-    pipes: [COMMON_PIPES],
-    providers: [TodoService]
+    pipes: [COMMON_PIPES]
 })
 export class Home {
     constructor(todoService:TodoService) {
@@ -16,11 +15,10 @@ export class Home {
         this.title = 'Home Page';
     }
 
-    onInit() {
+    ngOnInit() {
         this.todoService.getTodos()
-            .map(res => res.json())
-            .subscribe(data => {
-                this.todos = data;
+            .subscribe((response) => {
+                this.todos = response.json();
             });
     }
 }

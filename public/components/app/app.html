@@ -1,6 +1,6 @@
 <header>
-    <span [routerLink]="['/Home']" class="link" [class.active]="homeActive()">{{title}}</span>
-    <span [routerLink]="['/About']" class="link" [class.active]="aboutActive()">About</span>
+    <span [routerLink]="['Home']" class="link" [class.active]="homeActive()">{{title}}</span>
+    <span [routerLink]="['About']" class="link" [class.active]="aboutActive()">About</span>
 </header>
 <main>
     <router-outlet></router-outlet>

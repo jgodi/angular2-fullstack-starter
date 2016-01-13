@@ -1,17 +1,25 @@
 import {Component, ElementRef} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, Location} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Location, AsyncRoute} from 'angular2/router';
 
 import {Home} from '../home/home';
 import {About} from '../about/about';
 
 @Component({
     selector: 'app',
-    template: require('./app.html'),
+    templateUrl: 'components/app/app.html',
     directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-    {path: '/', component: Home, as: 'Home'},
-    {path: '/about', component: About, as: 'About'}
+    new AsyncRoute({
+        path: '/',
+        loader: () => System.import('./components/home/home').then(m => m.Home),
+        name: 'Home'
+    }),
+    new AsyncRoute({
+        path: '/about',
+        loader: () => System.import('./components/about/about').then(m => m.About),
+        name: 'About'
+    })
 ])
 export class MyApp {
     constructor(el:ElementRef, location:Location) {
