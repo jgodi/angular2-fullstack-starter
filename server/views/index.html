@@ -9,33 +9,34 @@
     <body>
         <app env="<%=env%>" port="<%=port%>" mockConfigId="<%=mockConfigId%>">Loading...</app>
 
-        <!--Required Shim Scripts-->
+        <!--Required Shim Scripts
         <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
         <script src="/node_modules/reflect-metadata/Reflect.js"></script>
         <script src="/node_modules/systemjs/dist/system.src.js"></script>
         <script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        -->
 
-        <script>
-            System.config({
-                defaultJSExtensions: true,
-                transpiler: 'babel',
-                paths: {
-                    'bootstrap': '/bootstrap',
-                    '*': '/node_modules/*'
-                }
-            });
-        </script>
-
-        <!--Angular/Other Lib Scripts-->
+        <!--Angular/Other Lib Scripts
         <script src="/node_modules/rxjs/bundles/Rx.min.js"></script>
         <script src="/node_modules/angular2/bundles/angular2.min.js"></script>
         <script src="/node_modules/angular2/bundles/router.js"></script>
         <script src="/node_modules/angular2/bundles/http.min.js"></script>
+        -->
 
         <!--Any Other Third Party Scripts-->
-
+        <script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+        <script src="/node_modules/systemjs/dist/system.src.js"></script>
+        <script src="/node_modules/rxjs/bundles/Rx.js"></script>
+        <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+        <script src="/node_modules/angular2/bundles/router.dev.js"></script>
         <script>
-            System.import('bootstrap').catch(console.log.bind(console));
+            System.config({
+                baseURL: '/node_modules',
+                defaultJSExtensions: true,
+                warnings: true
+            });
+            System.import('./bootstrap.js').catch(console.log.bind(console));
         </script>
     </body>
 </html>

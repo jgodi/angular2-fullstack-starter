@@ -10,6 +10,7 @@ log.txt
 .idea/
 .sass-cache/
 .versions/
+.cache/
 coverage/
 dist/
 node_modules/
