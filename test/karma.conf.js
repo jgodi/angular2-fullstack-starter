@@ -1,68 +1,68 @@
-var path = require('path'); // eslint-disable-line
-
+// Karma configuration
 module.exports = function (config) {
     config.set({
-        basePath: '',
+        // base path that will be used to resolve all patterns (eg. files, exclude)
+        basePath: '../',
 
-        frameworks: ['jasmine'],
+        // frameworks to use
+        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+        frameworks: ['browserify', 'source-map-support', 'jasmine'],
 
+        // list of files / patterns to load in the browser
         files: [
-            {pattern: 'spec.bundle.js', watched: false}
+            'test/init-tests.js',
+            'public/**/*.spec.js',
+            'public/**/*.html'
         ],
 
+        // list of files to exclude
         exclude: [],
 
+        // preprocess matching files before serving them to the browser
+        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'spec.bundle.js': ['webpack', 'sourcemap']
+            'test/init-tests.js': ['browserify'],
+            'public/**/*.spec.js': ['browserify'],
+            '**/*.html': ['redirect']
         },
 
-        plugins: [
-            require('karma-webpack'),
-            require('karma-jasmine'),
-            require('karma-phantomjs-launcher'),
-            require('karma-sourcemap-loader'),
-            require('karma-mocha-reporter')
-        ],
-
-        webpack: {
-            resolve: {
-                modulesDirectories: [
-                    'node_modules'
-                ],
-                extensions: ['', '.js', '.ts']
-            },
-            devtool: 'inline-source-map',
-            module: {
-                loaders: [
-                    {test: /\.html$/, loader: 'raw'},
-                    {test: /\.js$/, loader: 'babel', exclude: /(node_modules)/},
-                    {test: /\.(png|woff|ttf)(\?.*)?$/, loader: 'url-loader?limit=1000000'},
-                    {test: /\.scss$/, loaders: ['style', 'css', 'sass']}
-                ],
-                noParse: [/angular2\/bundles\/.+/]
-            },
-
-            // Sass loader configuration to tell webpack where to find the additional SASS files
-            // https://github.com/jtangelder/sass-loader#sass-options
-            sassLoader: {
-                includePaths: [
-                    path.resolve(__dirname, 'node_modules', 'src', 'styles')
-                ]
-            },
-            stats: {colors: true, reasons: true},
-            debug: false
+        browserify: {
+            debug: true,
+            transform: ['babelify']
         },
 
-        webpackServer: {
-            noInfo: true
+        redirectPreprocessor: {
+            stripPrefix: 'public/'
         },
 
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: ['mocha'],
+
+        // web server port
         port: 9876,
+
+        // enable / disable colors in the output (reporters and logs)
         colors: true,
+
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
+
+        // enable / disable watching file and executing tests whenever any file changes
         autoWatch: false,
+
+        // start these browsers
+        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
-        singleRun: true
+
+        // Continuous Integration mode
+        // if true, Karma captures browsers, runs the tests and exits
+        singleRun: true,
+
+        // Concurrency level
+        // how many browser should be started simultanous
+        concurrency: Infinity
     });
 };

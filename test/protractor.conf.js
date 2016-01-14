@@ -1,3 +1,4 @@
+// TODO - somehow auto start the server?
 exports.config = {
     baseUrl: 'http://localhost:3000/',
 
@@ -27,9 +28,9 @@ exports.config = {
     },
 
     onPrepare: function () {
+        var SpecReporter = require('jasmine-spec-reporter'); // eslint-disable-line
         require('babel-core/register');
         browser.ignoreSynchronization = true;
-        var SpecReporter = require('jasmine-spec-reporter');
         jasmine.getEnv().addReporter(new SpecReporter({
             displayPendingSpec: true
         }));
@@ -46,12 +47,5 @@ exports.config = {
         };
     },
 
-    /**
-     * Angular 2 configuration
-     *
-     * useAllAngular2AppRoots: tells Protractor to wait for any angular2 apps on the page instead of just the one matching
-     * `rootEl`
-     *
-     */
     useAllAngular2AppRoots: true
 };

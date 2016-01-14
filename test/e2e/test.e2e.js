@@ -4,8 +4,8 @@ describe('App', () => {
     });
 
     it('should have a title', () => {
-        var subject = browser.getTitle();
-        var result = 'Angular2 Fullstack Starter';
+        const subject = browser.getTitle();
+        const result = 'Angular2 Fullstack Starter';
         expect(subject).toEqual(result);
     });
 });

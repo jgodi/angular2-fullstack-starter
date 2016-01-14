@@ -1,0 +1,7 @@
+.idea/
+test/
+coverage/
+
+.editorconfig
+.eslintrc
+.npmignore

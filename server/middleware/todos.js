@@ -15,7 +15,7 @@ export default function () {
         })
         .post((req, res) => {
             console.log('CALLING POST FOR TODOS', req.body); // eslint-disable-line
-            let todo = req.body;
+            const todo = req.body;
             if (todo) {
                 todo.push(todo);
                 res.json(todo);
