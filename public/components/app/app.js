@@ -1,9 +1,6 @@
 import {Component, ElementRef} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Location, AsyncRoute} from 'angular2/router';
 
-import {Home} from '../home/home';
-import {About} from '../about/about';
-
 @Component({
     selector: 'app',
     templateUrl: 'components/app/app.html',
