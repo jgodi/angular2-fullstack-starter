@@ -26,7 +26,7 @@
   "homepage": "https://github.com/jgodi/angular2-fullstack-starter",
   "dependencies": {
     "angular2": "2.0.0-beta.1",
-    "angular2-library-starter": "^0.0.4",
+    "angular2-library-starter": "^0.0.5",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "reflect-metadata": "0.1.2",
