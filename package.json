@@ -6,15 +6,13 @@
   "scripts": {
     "build:cache": "express-compile public",
     "lint": "eslint public server test",
-    "postinstall": "npm run build:cache",
     "prepublish": "npm run lint && npm run build:cache",
     "preprotractor": "npm run webdriver-update",
     "protractor": "protractor test/protractor.conf.js",
     "start": "node index.js",
     "test": "karma start test/karma.conf.js",
     "test:watch": "karma start test/karma.conf.js --single-run false --auto-watch true",
-    "webdriver-update": "webdriver-manager update",
-    "webdriver-start": "webdriver-manager start"
+    "webdriver-update": "./node_modules/protractor/bin/webdriver-manager update"
   },
   "author": "Joshua Godi <joshuagodi@gmail.com>",
   "repository": {
@@ -28,7 +26,7 @@
   "homepage": "https://github.com/jgodi/angular2-fullstack-starter",
   "dependencies": {
     "angular2": "2.0.0-beta.1",
-    "bh-elements": "0.0.7",
+    "angular2-library-starter": "^0.0.4",
     "es6-promise": "^3.0.2",
     "es6-shim": "^0.33.3",
     "reflect-metadata": "0.1.2",
@@ -54,27 +52,34 @@
     "convict": "^1.0.1",
     "cors": "^2.7.1",
     "ejs": "^2.3.4",
+    "eslint": "^1.10.3",
     "eslint-config-bullhorn": "0.0.12",
     "express": "^4.13.3",
     "express-compile": "^3.0.0",
-    "express-compilers": "^3.0.0",
+    "express-compilers": "^3.0.1",
     "express-session": "^1.12.1",
     "ghooks": "^1.0.1",
     "jasmine-core": "^2.4.1",
+    "jasmine-spec-reporter": "^2.4.0",
     "karma": "^0.13.19",
     "karma-browserify": "^4.4.2",
     "karma-jasmine": "^0.3.6",
     "karma-mocha-reporter": "^1.1.5",
     "karma-phantomjs-launcher": "^0.2.3",
+    "karma-redirect-preprocessor": "^0.1.1",
     "karma-source-map-support": "^1.1.0",
     "morgan": "^1.6.1",
     "pathmodify": "^0.5.0",
     "phantomjs": "^1.9.19",
-    "protractor": "^3.0.0",
-    "webdriver-manager": "^8.0.0"
+    "protractor": "^3.0.0"
   },
   "engines": {
     "node": ">= 4.2.1",
     "npm": ">= 3"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }

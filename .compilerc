@@ -1,0 +1,42 @@
+{
+    "env": {
+        "development": {
+            "application/javascript": {
+                "presets": ["es2015"],
+                "sourceMaps": "inline",
+                "plugins": [
+                "angular2-annotations",
+                    "transform-decorators-legacy",
+                    "transform-class-properties",
+                    "transform-flow-strip-types"
+                ]
+            },
+            "text/scss": {
+                "sourceMap": true,
+                "sourceMapEmbed": true,
+                "includePaths": [
+                    "node_modules/angular2-library-starter/dist"
+                ]
+            }
+        },
+        "production": {
+            "application/javascript": {
+                "presets": ["es2015"],
+                "sourceMaps": "none",
+                "plugins": [
+                    "angular2-annotations",
+                    "transform-decorators-legacy",
+                    "transform-class-properties",
+                    "transform-flow-strip-types"
+                ]
+            },
+            "text/scss": {
+                "sourceMap": false,
+                "sourceMapEmbed": false,
+                "includePaths": [
+                    "node_modules/angular2-library-starter/dist"
+                ]
+            }
+        }
+    }
+}

@@ -23,8 +23,11 @@
         <script>
             // SystemJS Config
             System.config({
-                baseURL: '/node_modules',
-                defaultJSExtensions: true
+                defaultJSExtensions: true,
+                paths: {
+                    'angular2-library-starter': '/node_modules/angular2-library-starter/dist/angular2-library-starter.js',
+                    '*': '/node_modules/*'
+                }
             });
         </script>
 
@@ -34,6 +37,7 @@
         <script src="/node_modules/angular2/bundles/http.js"></script>
 
         <!--Any Other Third Party Scripts-->
+        <script src="/node_Modules/angular2-library-starter/dist/angular2-library-starter.js"></script>
 
         <script>
             // Import the entry point of our application

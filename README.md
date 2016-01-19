@@ -18,7 +18,7 @@ cd angular2-fullstack-starter
 # Install all required dependencies
 npm install
 
-# Start the server (uses WebpackDevServer for development)
+# Start the server
 npm start
 ```
 
@@ -43,42 +43,19 @@ Make sure to install the webdriver before hand using `npm run webdriver-update`.
 # Start the application in one command prompt
 npm start
 
-# Start the webdriver in another command prompt
-npm run webdriver-start
-
 # Finally, run the e2e test in a third command prompt
 npm run protractor
 ```
 
 ### Building
 
-Building this application is easy, there are a few commands to make it very easy. It uses the `index.html` file that is located in `public` as a base template and outputs a build version of it into `server/views/index.html` to be served up via node.
-
-#### Development
+#### Pre-Compile
 
 To build a development version of the application, run the following commands:
 
 ```bash
-# Build a development version 
-npm run build:dev
-```
-
-#### Production
-
-To build a fully optimized production version of the application, run the following commands:
-
-```bash
-# Build a production version
-npm run build:prod
-```
-
-### Running Production Code
-
-To run the production version of the application, run the following commands:
-
-```bash
-npm run build:prod
-npm run start:prod
+# Build a pre-compiled version of the application to be served up in production
+npm run build:cache
 ```
 
 ### Adding Configuration

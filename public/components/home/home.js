@@ -1,12 +1,13 @@
 import {Component} from 'angular2/core';
 import {CORE_DIRECTIVES, COMMON_PIPES} from 'angular2/common';
+import {Bar} from 'angular2-library-starter';
 
 import {TodoService} from '../../services/todo';
 
 @Component({
     selector: 'home',
     templateUrl: 'components/home/home.html',
-    directives: [CORE_DIRECTIVES],
+    directives: [CORE_DIRECTIVES, Bar],
     pipes: [COMMON_PIPES]
 })
 export class Home {
