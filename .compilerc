@@ -15,7 +15,7 @@
                 "sourceMap": true,
                 "sourceMapEmbed": true,
                 "includePaths": [
-                    "node_modules/angular2-library-starter/dist"
+                    "node_modules/angular2-library-starter/lib"
                 ]
             }
         },
@@ -34,7 +34,7 @@
                 "sourceMap": false,
                 "sourceMapEmbed": false,
                 "includePaths": [
-                    "node_modules/angular2-library-starter/dist"
+                    "node_modules/angular2-library-starter/lib"
                 ]
             }
         }
