@@ -22,8 +22,8 @@ export default function (app) {
         // Set the content base, where the files are served from
         contentBase: path.join(__dirname, 'public'),
 
-        // Tell Webpack to serve our bundled application from the assets path. When proxying:
-        // http://localhost:3000/assets -> http://localhost:8080/assets
+        // Tell Webpack to serve our bundled application from the bundle path. When proxying:
+        // http://localhost:3000/bundle -> http://localhost:3001/bundle
         publicPath: '/bundle/',
 
         // Configure hot replacement
@@ -49,7 +49,7 @@ export default function (app) {
     // Create a proxy to serve files to the app server from the webpack dev server
     const proxy = httpProxy.createProxyServer();
 
-    // Any requests to localhost:3000/assets is proxied
+    // Any requests to localhost:3000/bundle is proxied
     // to webpack-dev-server
     app.all(['/bundle/*', '*.hot-update.json'], function (req, res) {
         proxy.web(req, res, {
